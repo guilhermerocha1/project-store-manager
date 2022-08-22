@@ -12,7 +12,19 @@ const findById = async (id) => {
   return result;
 };
 
+const create = async (name) => {
+  const result = await productsModel.create(name);
+
+  const parseResult = {
+    id: result.insertId,
+    name,
+  };
+
+  return parseResult;
+};
+
 module.exports = {
   getAll,
   findById,
+  create,
 };

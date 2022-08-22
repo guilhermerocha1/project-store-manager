@@ -15,7 +15,15 @@ const findWhereId = async (id) => {
   return result[0];
 };
 
+const create = async (name) => {
+  const [result] = await connection.execute(
+    'INSERT INTO StoreManager.products (name) VALUES(?);', [name],
+  );
+  return result;
+};
+
 module.exports = {
   getProducts,
   findWhereId,
+  create,
 };
