@@ -30,9 +30,11 @@ const findById = async (req, res) => {
 const createProduct = async (req, res) => {
   try {
     const { name } = req.body;
-    const result = await productsService.create(name);
+    const { parseResult, message, code } = await productsService.create(name);
+
+    if (message) return res.status(code).json({ message });
   
-    res.status(201).json(result);
+    res.status(code).json(parseResult);
   } catch (error) {
     console.log(error);
     res.status(404).json({ message: MSG_ERROR });

@@ -1,4 +1,5 @@
 const productsModel = require('../models/productsModel');
+const isValidName = require('../middlewares/validationName');
 
 const getAll = async () => {
   const result = await productsModel.getProducts();
@@ -13,6 +14,10 @@ const findById = async (id) => {
 };
 
 const create = async (name) => {
+  const validations = isValidName(name);
+
+  if (validations.message) return validations;
+
   const result = await productsModel.create(name);
 
   const parseResult = {
@@ -20,7 +25,10 @@ const create = async (name) => {
     name,
   };
 
-  return parseResult;
+  return {
+    parseResult,
+    code: 201,
+  };
 };
 
 module.exports = {
