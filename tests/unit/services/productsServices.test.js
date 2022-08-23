@@ -1,9 +1,8 @@
 const { expect } = require('chai');
-const describe = require('mocha');
 const sinon = require('sinon');
 
-const productsModel = require('../../models/productsModel');
-const productsService = require('../../services/productsServices');
+const productsModel = require('../../../models/productsModel');
+const productsService = require('../../../services/productsServices');
 
 describe('Busca pelos produtos StoreManager Service', () => {
 

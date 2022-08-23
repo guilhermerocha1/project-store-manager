@@ -1,9 +1,8 @@
 const sinon = require('sinon');
 const { expect } = require('chai');
-const { before } = require('mocha');
 
-const productsController = require('../../controllers/productsController');
-const productsService = require('../../services/productsServices');
+const productsController = require('../../../controllers/productsController');
+const productsService = require('../../../services/productsServices');
 
 describe('Busca pelos produtos StoreManager Controller', () => {
   const response = {};
