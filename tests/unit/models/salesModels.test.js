@@ -2,9 +2,9 @@ const { expect } = require('chai');
 const sinon = require('sinon');
 
 const connection = require('../../../models/connection');
-const productsModel = require('../../../models/productsModel');
+const salesModel = require('../../../models/salesModel');
 
-describe('Busca pelos produtos StoreManager Models', () => {
+describe('Busca pelos sales StoreManager Models', () => {
   before(() => {
     const result = [[], []];
     sinon.stub(connection, 'execute').resolves(result)
@@ -13,7 +13,7 @@ describe('Busca pelos produtos StoreManager Models', () => {
     sinon.restore();
   })
   it('Verificando se retorna um array', async () => {
-    const funcGet = await productsModel.getProducts();
+    const funcGet = await salesModel.getProducts();
     expect(funcGet).to.be.an('array');
   });
 });
