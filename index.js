@@ -16,6 +16,8 @@ app.get('/sales', salesController.getAll);
 
 app.get('/sales/:id', salesController.findById);
 
+app.delete('/products/:id', productsController.destroy);
+
 // não altere esse arquivo, essa estrutura é necessária para à avaliação do projeto
 
 app.listen(process.env.PORT, () => {

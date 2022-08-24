@@ -31,8 +31,16 @@ const create = async (name) => {
   };
 };
 
+const destroy = async (id) => {
+  const findBy = await productsModel.findWhereId(id);
+  if (!findBy) return null;
+  await productsModel.destroy(id);
+  return true;
+};
+
 module.exports = {
   getAll,
   findById,
   create,
+  destroy,
 };

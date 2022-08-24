@@ -41,8 +41,21 @@ const createProduct = async (req, res) => {
   }
 };
 
+const destroy = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const result = await productsService.destroy(id);
+    if (!result) res.status(404).json({ message: 'Product not found' });
+    res.status(204).end();
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: MSG_ERROR });
+  }
+};
+
 module.exports = {
   getAll,
   findById,
   createProduct,
+  destroy,
 };
