@@ -9,7 +9,7 @@ const getAll = async (_req, res) => {
     res.status(200).json(result);
   } catch (error) {
     console.log(error);
-    res.status(404).json({ message: MSG_ERROR });
+    res.status(500).json({ message: MSG_ERROR });
   }
 };
 
@@ -23,7 +23,7 @@ const findById = async (req, res) => {
     res.status(200).json(result);
   } catch (error) {
     console.log(error);
-    res.status(404).json({ message: MSG_ERROR });
+    res.status(500).json({ message: MSG_ERROR });
   }
 };
 
@@ -37,7 +37,7 @@ const createProduct = async (req, res) => {
     res.status(code).json(parseResult);
   } catch (error) {
     console.log(error);
-    res.status(404).json({ message: MSG_ERROR });
+    res.status(500).json({ message: MSG_ERROR });
   }
 };
 
